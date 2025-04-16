@@ -293,7 +293,7 @@ def send_emails(email_sender, email_password, recipients, subject, body):
                 msg["Subject"] = subject
                 msg.set_content(body)
                 server.send_message(msg)
-        st.success("Emails sent successfully!")
+        st.success("Emails sent successfully to the Candidate!")
     except Exception as e:
         st.error(f"Error sending emails: {e}")
 
@@ -309,7 +309,7 @@ def email_feature(results):
             return
 
         selected_candidates = st.multiselect(
-            "Select Candidates to Email", 
+            "Select Candidates to send Email", 
             [f"{cand['name']} ({cand['email']})" for cand in eligible_candidates]
         )
         email_sender = st.text_input("Sender Email")
